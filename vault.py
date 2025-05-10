@@ -58,12 +58,9 @@ def enter_new_credentials(destination: str) -> (str,str,str):
     return (passphrase, credential, destination)
 
 def decrypt_existing_key_with_source(source=None) -> str:
-
     if source == None:
         source = input("Enter Source FilePath: ")
-
     passphrase = getpass.getpass("Enter Passphrase: ")
-
     if False == file_exists(source):
         print(f"Key does not exist... Exiting...")
         exit(1)
@@ -86,7 +83,6 @@ def decrypt_existing_key_with_source(source=None) -> str:
         except Exception as e:
             print(f"error reading file: {e}")
             exit(1)
- 
     return _decrypt_key(passphrase.encode(), source)
 
 def file_exists(file_path: str) -> bool:
