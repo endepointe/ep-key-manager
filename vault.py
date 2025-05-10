@@ -83,7 +83,6 @@ def decrypt_existing_key_with_source(source=None) -> str:
         except Exception as e:
             print(f"error reading file: {e}")
             exit(1)
-    return _decrypt_key(passphrase.encode(), source)
 
 def file_exists(file_path: str) -> bool:
     return os.path.exists(file_path)
